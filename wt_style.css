@@ -2,7 +2,7 @@
 	position : fixed !important;
 	right : 3px;
 	top : 3px;
-	z-index : 1000;
+	z-index : 10000;
 	width : 0;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: visibility 0s, width 0.5s;
