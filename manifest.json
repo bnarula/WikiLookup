@@ -1,15 +1,17 @@
 {
   "manifest_version": 2,
 
-  "name": "Wiki Lookup",
-  "description": "Wiki the selected word without losing tab context. Select the word + Alt key to open the wiki article for the same.",
-  "version": "1.1",
+  "name": "__MSG_extName__"  ,
+  "description": "__MSG_extDescription__",
+  "version": "1.2",
+  "default_locale":"en",
   "icons": { "16": "icon16.png",
            "48": "icon48.png",
           "128": "icon128.png" },
   "permissions": [
     "activeTab",
-    "https://en.wikipedia.org/w/api.php/"
+    "https://en.wikipedia.org/w/api.php/",
+    "contextMenus"
   ],
   "web_accessible_resources": ["ic_close_black_24dp_2x.png", "ic_open_in_new_black_24dp_2x.png", "ic_image_black_48px.svg"],
   "content_scripts": [

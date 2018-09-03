@@ -1,11 +1,24 @@
 var wt_comp;
+var apiEndpoint = "https://"+chrome.i18n.getMessage("apiEndpoint")+".wikipedia.org/w/api.php";
+
 if(!wt_comp)
 {
 	wt_comp = createWikiDiv();
-	
 	wt_comp.view.appendTo($("body"));
+	setupContextMenu();
 }
+function setupContextMenu(){
+	var createProperties = {
+		title: chrome.i18n.getMessage("ctxt_menu_item_lookup"),
+		onclick: callback,
+		enabled: false,
 
+	};
+	var callback = function(){
+		
+	}
+	//chrome.contextMenus.create(createProperties, callback);
+}
 function getSelectedText(event) {
 	if(event.altKey && document.getSelection().toString()!=""){
 		if(wt_comp.state != 'shown'){
@@ -36,14 +49,9 @@ function closeWikiCard(){
 
 function hitWiki(wtSelText){
 	if(wtSelText.rangeCount){
-		
-		
-
 		var promiseCall = function(resolve, reject) {
-			
-			
 		  $.ajax({
-				  url: 'https://en.wikipedia.org/w/api.php',
+				  url: apiEndpoint,
 				  async : true,
 				  data: {
 						"action": "query",
@@ -108,7 +116,7 @@ document.ondblclick = getSelectedText;
 function createWikiDiv(){
 	var comp = {};
 	comp.view = $("<div class=\"wt_wrapper\" id=\"wt_card\"></div>");
-	comp.view.height($(window).height() - 10);
+	comp.view.height($(window).height() - 5);
 	comp.elements = [];
 	comp.state = 'drawn';
 	var card = {};
@@ -119,7 +127,10 @@ function createWikiDiv(){
 	title.view = $('<h4 class=\"wt_card-title\" id=\"wt_title\">..Title..</h4>');
 	title.view.appendTo(card.view);
 	card.elements.push(title);
+
 	
+	$('<hr />').appendTo(card.view);
+
 	var img = {};
 	var noImage = chrome.runtime.getURL("ic_image_black_48px.svg");
 	img.view = $('<img class=\"wt_card-img-top\" id=\"wt_img\" src=\"'+noImage+'">');
@@ -127,6 +138,8 @@ function createWikiDiv(){
 	//img.view.wrap('<center></center>');
 	card.elements.push(img);
 	
+	$('<hr />').appendTo(card.view);
+
 	var desc = {};
 	desc.view = $('<p class=\"wt_card-text wt_extract\" id=\"wt_extract\"></p>');
 	desc.view.appendTo(card.view);

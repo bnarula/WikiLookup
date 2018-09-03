@@ -1,0 +1,18 @@
+{
+	"extName": {
+		"message": "WikiLookup",
+		"description": "nom de l'extension"
+	},
+	"extDescription": {
+		"message": "Wiki le mot sélectionné sans perdre le contexte de l'onglet. Sélectionnez le mot + Alt pour ouvrir l'article wiki pour le même.",
+		"description": "A propos de l'extension"
+	},
+	"apiEndpoint":{
+		"message": "fr",
+		"description": "api endpoint"
+	},
+	"ctxt_menu_item_lookup":{
+		"message": "Wiki-Lookup",
+		"description": "context menu shortcut"
+	}
+}

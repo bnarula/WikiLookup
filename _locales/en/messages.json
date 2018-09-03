@@ -1,0 +1,19 @@
+{
+	"extName": {
+		"message": "WikiLookup",
+		"description": "name of the extension"
+	},
+	"extDescription": {
+		"message": "Wiki the selected word without losing tab context. Select the word + Alt key to open the wiki article for the same.",
+		"description": "About the extension"
+	},
+	"apiEndpoint":{
+		"message": "en",
+		"description": "api endpoint"
+	},
+	"ctxt_menu_item_lookup":{
+		"message": "Wiki-Lookup",
+		"description": "context menu shortcut"
+	}
+
+}
